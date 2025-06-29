@@ -16,7 +16,7 @@ function SearchPage() {
   };
 
   const handleCheckboxChange = (id, resolved) => {
-    axios.put(`http://localhost:5000/info/${id}`, { resolved: !resolved })
+    axios.put(`http://localhost:3000/info/${id}`, { resolved: !resolved })
       .then(() => fetchData());
   };
 
