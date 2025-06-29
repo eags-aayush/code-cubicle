@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+@import "leaflet/dist/leaflet.css";
+
+.shadow-issue{
+box-shadow: 0px 0px 113px -14px rgba(255,0,0,0.35);
+-webkit-box-shadow: 0px 0px 113px -14px rgba(255,0,0,0.35);
+-moz-box-shadow: 0px 0px 113px -14px rgba(255,0,0,0.35);
+}
+
+.shadow-suggestion{
+box-shadow: 0px 0px 113px -14px rgba(0, 255, 0, 0.35);
+-webkit-box-shadow: 0px 0px 113px -14px rgba(0,255,0,0.35);
+-moz-box-shadow: 0px 0px 113px -14px rgba(0,255,0,0.35);
+}
+
+.shadow-emergency{
+box-shadow: 0px 0px 113px -14px rgba(0,0,225,0.35);
+-webkit-box-shadow: 0px 0px 113px -14px rgba(0,0,225,0.35);
+-moz-box-shadow: 0px 0px 113px -14px rgba(0,0,225,0.35);
+}
+
+.shadow-map{
+box-shadow: 0px 0px 113px -14px rgba(255, 255, 255, 0.35);
+-webkit-box-shadow: 0px 0px 113px -14px rgba(255, 255, 255, 0.35);
+-moz-box-shadow: 0px 0px 113px -14px rgba(255, 255, 255, 0.35);
+}
+
+.button-gradient{
+    width: fit-content;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+    linear-gradient(to right, #40ffaa, #4079ff) border-box;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 25px;
+}
+
+body{
+    background-color: var(--background);
+    color: var(--text);
+}
+
+@theme{
+    --color-background: var(--background);
+    --color-text: var(--text);
+}
+
+:root{
+    --background: #000000;
+    --text: #ffffff;
+}
+
+.dark{
+    --background: #ffffff;
+    --text: #000000;
+}
