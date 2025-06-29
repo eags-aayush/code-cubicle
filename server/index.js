@@ -90,7 +90,7 @@ app.post('/data', async (req, res) => {
 // ✅ GET: All Reports with Coordinates
 app.get('/get-reports', async (req, res) => {
   try {
-    const reports = await Incident.find({});
+    const reports = await Incident.find({ resolved: false });
     const enrichedReports = [];
 
     for (const report of reports) {
