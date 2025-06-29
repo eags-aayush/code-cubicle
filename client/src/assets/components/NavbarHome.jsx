@@ -6,7 +6,7 @@ const Navbar = () => {
       <li><span className='flex gap-5 items-center'>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgIT6GBCzZNDv2n6HOKqNSHogYNgISu-4N4Au61wthmtWEY8_y_XlqASMJWQwuXLTIuhQ7UQ&s"
           alt="logo" width={40} />
-        <h1 className='font-extrabold'>JanSamadhan</h1>
+        <h1 className='font-extrabold'>JanSunwai AI</h1>
       </span></li>
       <li>
         <label className="relative inline-flex items-center w-14 h-8 cursor-pointer">

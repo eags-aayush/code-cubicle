@@ -53,9 +53,8 @@ const Hero = () => {
                 colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                 animationSpeed={3}
                 showBorder={false}
-                className="custom-class text-3xl text-center md:text-5xl"
-            >
-                JanSamadhan
+                className="custom-class px-1 text-3xl text-center md:text-5xl">
+                JanSunwai AI
             </GradientText>
 
             <SplitText

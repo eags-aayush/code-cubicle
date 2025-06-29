@@ -62,8 +62,8 @@ const Home = () => {
             tags={<Tag tags={["Medical emergency", "Fire outbreak", "Criminal activity", "Accident reported", "Domestic violence", "Gas leak", "Electric short circuit", "Unconscious person", "Heart attack", "Police intervention", "Child in danger", "Flood rescue needed", "Missing person", "Natural disaster alert", "Armed robbery"]} />}
           />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </>
   )
 }
