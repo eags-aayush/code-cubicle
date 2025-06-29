@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import './SearchPage.css'
 
 function SearchPage() {
   const [data, setData] = useState([]);
@@ -27,8 +28,8 @@ function SearchPage() {
   });
 
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Incident Tracker</h2>
+    <div className='bg-background text-text transition-colors duration-300 ease-in-out' style={{ padding: 20 }}>
+      <h2 className='font-bold underline'>Incident Tracker</h2>
 
       <div style={{ marginBottom: 20 }}>
         <label>
@@ -55,7 +56,7 @@ function SearchPage() {
           placeholder="Search locality"
           value={localityFilter}
           onChange={(e) => setLocalityFilter(e.target.value)}
-          style={{ padding: "4px" }}
+          className='p-4 py-1.5 border border-text'
         />
       </div>
 
@@ -74,7 +75,8 @@ function SearchPage() {
         </thead>
         <tbody>
           {filteredData.map(item => (
-            <tr key={item._id}>
+            <tr key={item._id}
+            className={item.resolved ? "resolved" : ""}>
               <td>{item.date}</td>
               <td>{item.time}</td>
               <td>{item.incident_type}</td>

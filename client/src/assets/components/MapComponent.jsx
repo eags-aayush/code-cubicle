@@ -1,4 +1,4 @@
-// MapComponent.jsx
+
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
@@ -70,7 +70,7 @@ const MapComponent = ({ shadow }) => {
         style={{ height: '100%', width: '100%' }}
       >
 
-        {/* your layers, markers, etc. */}
+        {/* layer and martker */}
 
 
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

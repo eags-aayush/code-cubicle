@@ -1,40 +1,28 @@
-import { useState, useEffect } from "react";
-
 export default function Navbar() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   return (
-    <nav style={styles.navbar}>
-      <h2 style={styles.title}>Incident Tracker</h2>
-      <button onClick={() => setDarkMode(!darkMode)} style={styles.toggleBtn}>
-        {darkMode ? "🌞 Light Mode" : "🌙 Dark Mode"}
-      </button>
+    <nav className='bg-background text-text flex flex-row justify-between p-5 top-0 sticky transition-colors duration-300'>
+      <h2 className='font-bold'>JanSunwai AI - Admin</h2>
+      <label className="relative inline-flex items-center w-14 h-8 cursor-pointer">
+        <input
+          type="checkbox"
+          className="sr-only peer"
+          defaultChecked
+          onChange={() => document.documentElement.classList.toggle("dark")}
+        />
+
+        <div className="w-full h-full rounded-full bg-gray-300 peer-checked:bg-gray-700" />
+
+        {/* Light (sun) */}
+        <span className="absolute left-1 top-1 text-xl transition-transform duration-300 peer-checked:translate-x-6 peer-checked:opacity-0">
+          <img src="https://img.icons8.com/?size=100&id=8EUmYhfLPTCF&format=png&color=000000" width={23} className='rounded-full' />
+        </span>
+
+        {/* Dark (moon) */}
+        <span className="absolute left-1 top-1 text-xl transition-transform duration-300 opacity-0 peer-checked:translate-x-6 peer-checked:opacity-100">
+          <img src="https://img.icons8.com/?size=100&id=62034&format=png&color=000000" alt="dark-mode" width={25} />
+        </span>
+      </label>
     </nav>
   );
 }
-
-const styles = {
-  navbar: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "1rem 2rem",
-    backgroundColor: "#eee",
-    borderBottom: "1px solid #ccc",
-  },
-  title: {
-    margin: 0,
-  },
-  toggleBtn: {
-    fontSize: "1rem",
-    padding: "0.5rem 1rem",
-    cursor: "pointer",
-  },
-};

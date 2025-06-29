@@ -100,7 +100,7 @@ app.get('/get-reports', async (req, res) => {
         coordinates: coords
       });
 
-      await new Promise(resolve => setTimeout(resolve, 500)); // Delay to avoid rate limit
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
 
     res.json(enrichedReports);

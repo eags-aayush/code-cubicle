@@ -1,0 +1,30 @@
+\.admin-container {
+  padding: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid var(--text);
+  text-align: center;
+}
+
+tr {
+  background: var(--background);
+}
+
+tr.resolved {
+  background: #d0ffd0;
+  color: #444;
+}
