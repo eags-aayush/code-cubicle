@@ -1,11 +1,13 @@
 import React from 'react'
+import logo from '../../../public/logo.jpg'
 
 const Navbar = () => {
   return (
     <nav className='bg-background/30 z-10 backdrop-blur-sm sticky top-0 list-none flex justify-between items-center p-5 mb-10'>
       <li><span className='flex gap-5 items-center'>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgIT6GBCzZNDv2n6HOKqNSHogYNgISu-4N4Au61wthmtWEY8_y_XlqASMJWQwuXLTIuhQ7UQ&s"
-          alt="logo" width={40} />
+        <img src={logo}
+          alt="logo" width={40} 
+          className='rounded-full'/>
         <h1 className='font-extrabold'>JanSunwai AI</h1>
       </span></li>
       <li>
