@@ -52,7 +52,10 @@ const Hero = () => {
                 },
                 body: JSON.stringify({
                     agent_id: 2318,
-                    to_number: `+91${phone}`
+                    to_number: `+91${phone}`,
+                    call_context: {
+                        location: address
+                    }
                 })
             });
             console.log("✅ Call dispatched");
