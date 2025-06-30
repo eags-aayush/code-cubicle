@@ -86,6 +86,7 @@ const MapComponent = ({ shadow }) => {
 
         {reports.map((r, i) => {
           const coords = r.coordinates;
+          console.log(coords)
           if (!coords || !coords.lat || !coords.lon) return null;
 
           const icon = r.incident_type?.toLowerCase() === 'suggestion' ? suggestionIcon : issueIcon;

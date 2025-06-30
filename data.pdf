@@ -1,0 +1,14 @@
+{
+  "_id": {
+    "$oid": "68621ea3f1ff62273e158141"
+  },
+  "date": "2025-06-30",
+  "time": "05:20:33",
+  "incident_type": "Issue",
+  "location": "58/2, Debai Pukur Road, Hindmotor, Kolkata, West Bengal, 712233",
+  "caller_name": "Not provided",
+  "issue_description": "Roads in the locality are flooded for two days, making it difficult to move around.",
+  "incident_time": "The roads have been flooded for two days.",
+  "resolved": false,
+  "__v": 0
+}

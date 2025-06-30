@@ -1,13 +1,15 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import fetch from 'node-fetch';
+import 'dotenv/config';
 
 const app = express();
 const port = 3000;
 
 // 🔑 LocationIQ API Key (optional if unused for now)
-const LOCATIONIQ_API_KEY = 'pk.dd82e50dab62e8671c15878a51a18046';
+const LOCATIONIQ_API_KEY = process.env.LOCATION;
+console.log(LOCATIONIQ_API_KEY)
 
 // ✅ Middleware
 app.use(cors());
@@ -18,8 +20,8 @@ mongoose.connect('mongodb://localhost:27017/webhookdb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('✅ Connected to MongoDB'))
-.catch(err => console.error('❌ MongoDB error:', err));
+  .then(() => console.log('✅ Connected to MongoDB'))
+  .catch(err => console.error('❌ MongoDB error:', err));
 
 // ✅ Mongoose Schema & Model
 const incidentSchema = new mongoose.Schema({
@@ -80,9 +82,29 @@ app.post('/data', async (req, res) => {
 
     await incident.save();
     console.log('✅ Incident saved:', incident);
-    res.status(200).json({ message: 'Data saved to database' });
+
+    // Optional: make the API call only if save was successful
+    const token = process.env.VITE_AUTH_TOKEN;  // or hardcoded for now
+
+    const fetchRes = await fetch("https://backend.omnidim.io/api/v1/calls/dispatch", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        agent_id: 3035,
+        to_number: +916291337240
+      })
+    });
+
+    const fetchData = await fetchRes.json();
+    console.log("📞 Call dispatch response:", fetchData);
+
+    res.status(200).json({ message: 'Data saved and call dispatched' });
+
   } catch (error) {
-    console.error('❌ Error saving incident:', error.message);
+    console.error('❌ Error:', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

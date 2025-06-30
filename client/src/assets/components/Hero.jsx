@@ -5,6 +5,7 @@ import ShinyText from '../../blocks/TextAnimations/ShinyText/ShinyText';
 
 const Hero = () => {
     const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
     const token = import.meta.env.VITE_AUTH_TOKEN; // from .env
 
     const handleChange = (e) => {
@@ -12,6 +13,19 @@ const Hero = () => {
         if (/^\d{0,10}$/.test(value)) {
             setPhone(value);
         }
+
+        const value1 = e.target.value;
+        setPhone(value1)
+    };
+
+    const handleChange1 = (e) => {
+        const value = e.target.value;
+        if (/^\d{0,10}$/.test(value)) {
+            setAddress(value);
+        }
+
+        const value1 = e.target.value;
+        setAddress(value1)
     };
 
     const handleAnimationComplete = () => {
@@ -21,6 +35,7 @@ const Hero = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setPhone('')
+        setAddress('')
 
         if (phone.length !== 10) {
             alert("Please enter a valid 10-digit number.");
@@ -53,7 +68,7 @@ const Hero = () => {
                 colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                 animationSpeed={3}
                 showBorder={false}
-                className="custom-class px-1 text-3xl text-center md:text-5xl">
+                className="custom-class px-2 text-3xl text-center md:text-5xl">
                 JanSunwai AI
             </GradientText>
 
@@ -87,22 +102,32 @@ const Hero = () => {
                 onLetterAnimationComplete={handleAnimationComplete}
             />
             <div className='button-gradient'>
-                <form onSubmit={handleSubmit} className='flex flex-col md:flex-row justify-between items-center'>
-                    <input
-                        type="tel"
-                        inputMode="numeric"
-                        pattern="\d{10}"
-                        maxLength={10}
-                        placeholder="Enter 10-digit mobile number"
-                        value={phone}
-                        onChange={handleChange} 
-                        className='focus:outline-none text-sm text-center'/>
+                <form onSubmit={handleSubmit} className='flex flex-col items-center'>
+                    <div className='flex flex-col md:flex-row justify-center items-center text-center'>
+                        <input
+                            type="tel"
+                            inputMode="numeric"
+                            pattern="\d{10}"
+                            maxLength={10}
+                            placeholder="Enter 10-digit mobile number"
+                            value={phone}
+                            onChange={handleChange}
+                            className='focus:outline-none text-sm text-center' />
+
+                        <input
+                            type="text"
+                            placeholder="Enter your full address"
+                            value={address}
+                            onChange={handleChange1}
+                            className='focus:outline-none text-sm text-center ml-5' />
+                    </div>
+
                     <button type='submit' className='cursor-pointer'>
                         <ShinyText text="Submit!" disabled={false} speed={2} className='custom-class text-xl' />
                     </button>
                 </form>
             </div>
-            <span className='text-sm text-gray-500'>Your personal information is never stored*</span>    
+            <span className='text-sm text-gray-500'>Your personal information is never stored*</span>
         </div>
     )
 }
